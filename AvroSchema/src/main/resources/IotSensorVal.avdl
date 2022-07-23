@@ -1,0 +1,10 @@
+{
+  "type": "record",
+  "name": "IotSensorVal",
+  "fields" : [
+    {"name": "SensorID", "type": "string"},
+    {"name": "SensorType", "type": "string"},
+    {"name": "ReadingTime", "type": "int", "logicalType": "date"},
+    {"name": "ReadingValue", "type": "float"}
+  ]
+}

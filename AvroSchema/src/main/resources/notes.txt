@@ -1,0 +1,2 @@
+java -jar avro-tools-1.11.0.jar compile schema src/main/resources/IotSensorKey.avdl src/main/java/com/example/auto_gen
+java -jar avro-tools-1.11.0.jar compile schema src/main/resources/IotSensorVal.avdl src/main/java/com/example/auto_gen

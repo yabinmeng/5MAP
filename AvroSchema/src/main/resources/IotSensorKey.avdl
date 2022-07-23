@@ -1,0 +1,8 @@
+{
+  "type": "record",
+  "name": "IotSensorKey",
+  "fields" : [
+    {"name": "SiteId", "type": "int"},
+    {"name": "StationId", "type": "int"}
+  ]
+}
