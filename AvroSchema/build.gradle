@@ -25,9 +25,6 @@ dependencies {
     // https://mvnrepository.com/artifact/org.apache.pulsar/pulsar-client
     implementation group: 'org.apache.pulsar', name: 'pulsar-client', version: '2.10.1'
 
-    // https://mvnrepository.com/artifact/org.apache.pulsar/pulsar-functions-api
-    implementation group: 'org.apache.pulsar', name: 'pulsar-functions-api', version: '2.10.1'
-
     // https://mvnrepository.com/artifact/org.apache.avro/avro
     implementation group: 'org.apache.avro', name: 'avro', version: '1.11.0'
 
