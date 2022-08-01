@@ -29,7 +29,9 @@ public class AvroSchemaProducer {
                     .topic(topicName)
                     .create();
 
-            for (int i = 0; i < 20; i++) {
+            Thread.sleep(1000);
+
+            for (int i = 0; i < 10; i++) {
                 int siteId = RandomUtils.nextInt(0, AvroSchemaUtil.MAX_SENSOR_SITE_CNT);
                 int stationId = RandomUtils.nextInt(0, AvroSchemaUtil.MAX_SENSOR_STATION_CNT);
                 IotSensorKey iotSensorKey = new IotSensorKey(siteId, stationId);
@@ -43,6 +45,8 @@ public class AvroSchemaProducer {
                 producer.newMessage()
                         .property("prop_1", String.valueOf(RandomStringUtils.randomAlphabetic(5, 10)))
                         .value(iotSensorData).send();
+
+                System.out.println("message " + i + " published (siteId:" + siteId + ", stationId:" + stationId + ", sensorId:" + sensorId + ")");
             }
 
             if (producer != null)
@@ -50,7 +54,11 @@ public class AvroSchemaProducer {
         }
         catch (PulsarClientException pce) {
             pce.printStackTrace();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
+
+        System.exit(0);
     }
 
     private static void prdMsgWithStrKey(PulsarClient pulsarClient, String topicName) {
