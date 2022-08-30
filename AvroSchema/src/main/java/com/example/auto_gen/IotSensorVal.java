@@ -3,8 +3,10 @@
  *
  * DO NOT EDIT DIRECTLY
  */
+
 package com.example.auto_gen;
 
+import org.apache.avro.generic.GenericArray;
 import org.apache.avro.specific.SpecificData;
 import org.apache.avro.util.Utf8;
 import org.apache.avro.message.BinaryMessageEncoder;
@@ -13,10 +15,10 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class IotSensorVal extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = -6012110642547488560L;
+  private static final long serialVersionUID = 7628971872949909357L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"IotSensorVal\",\"fields\":[{\"name\":\"SensorID\",\"type\":\"string\"},{\"name\":\"SensorType\",\"type\":\"string\"},{\"name\":\"ReadingTime\",\"type\":\"int\",\"logicalType\":\"date\"},{\"name\":\"ReadingValue\",\"type\":\"float\"}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"IotSensorVal\",\"fields\":[{\"name\":\"SensorID\",\"type\":\"string\"},{\"name\":\"SensorType\",\"type\":\"string\"},{\"name\":\"ReadingTime\",\"type\":\"long\",\"logicalType\":\"date\"},{\"name\":\"ReadingValue\",\"type\":\"float\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -74,7 +76,7 @@ public class IotSensorVal extends org.apache.avro.specific.SpecificRecordBase im
 
   private java.lang.CharSequence SensorID;
   private java.lang.CharSequence SensorType;
-  private int ReadingTime;
+  private long ReadingTime;
   private float ReadingValue;
 
   /**
@@ -91,7 +93,7 @@ public class IotSensorVal extends org.apache.avro.specific.SpecificRecordBase im
    * @param ReadingTime The new value for ReadingTime
    * @param ReadingValue The new value for ReadingValue
    */
-  public IotSensorVal(java.lang.CharSequence SensorID, java.lang.CharSequence SensorType, java.lang.Integer ReadingTime, java.lang.Float ReadingValue) {
+  public IotSensorVal(java.lang.CharSequence SensorID, java.lang.CharSequence SensorType, java.lang.Long ReadingTime, java.lang.Float ReadingValue) {
     this.SensorID = SensorID;
     this.SensorType = SensorType;
     this.ReadingTime = ReadingTime;
@@ -117,7 +119,7 @@ public class IotSensorVal extends org.apache.avro.specific.SpecificRecordBase im
     switch (field$) {
     case 0: SensorID = (java.lang.CharSequence)value$; break;
     case 1: SensorType = (java.lang.CharSequence)value$; break;
-    case 2: ReadingTime = (java.lang.Integer)value$; break;
+    case 2: ReadingTime = (java.lang.Long)value$; break;
     case 3: ReadingValue = (java.lang.Float)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
@@ -161,7 +163,7 @@ public class IotSensorVal extends org.apache.avro.specific.SpecificRecordBase im
    * Gets the value of the 'ReadingTime' field.
    * @return The value of the 'ReadingTime' field.
    */
-  public int getReadingTime() {
+  public long getReadingTime() {
     return ReadingTime;
   }
 
@@ -170,7 +172,7 @@ public class IotSensorVal extends org.apache.avro.specific.SpecificRecordBase im
    * Sets the value of the 'ReadingTime' field.
    * @param value the value to set.
    */
-  public void setReadingTime(int value) {
+  public void setReadingTime(long value) {
     this.ReadingTime = value;
   }
 
@@ -234,7 +236,7 @@ public class IotSensorVal extends org.apache.avro.specific.SpecificRecordBase im
 
     private java.lang.CharSequence SensorID;
     private java.lang.CharSequence SensorType;
-    private int ReadingTime;
+    private long ReadingTime;
     private float ReadingValue;
 
     /** Creates a new Builder */
@@ -374,7 +376,7 @@ public class IotSensorVal extends org.apache.avro.specific.SpecificRecordBase im
       * Gets the value of the 'ReadingTime' field.
       * @return The value.
       */
-    public int getReadingTime() {
+    public long getReadingTime() {
       return ReadingTime;
     }
 
@@ -384,7 +386,7 @@ public class IotSensorVal extends org.apache.avro.specific.SpecificRecordBase im
       * @param value The value of 'ReadingTime'.
       * @return This builder.
       */
-    public IotSensorVal.Builder setReadingTime(int value) {
+    public IotSensorVal.Builder setReadingTime(long value) {
       validate(fields()[2], value);
       this.ReadingTime = value;
       fieldSetFlags()[2] = true;
@@ -455,7 +457,7 @@ public class IotSensorVal extends org.apache.avro.specific.SpecificRecordBase im
         IotSensorVal record = new IotSensorVal();
         record.SensorID = fieldSetFlags()[0] ? this.SensorID : (java.lang.CharSequence) defaultValue(fields()[0]);
         record.SensorType = fieldSetFlags()[1] ? this.SensorType : (java.lang.CharSequence) defaultValue(fields()[1]);
-        record.ReadingTime = fieldSetFlags()[2] ? this.ReadingTime : (java.lang.Integer) defaultValue(fields()[2]);
+        record.ReadingTime = fieldSetFlags()[2] ? this.ReadingTime : (java.lang.Long) defaultValue(fields()[2]);
         record.ReadingValue = fieldSetFlags()[3] ? this.ReadingValue : (java.lang.Float) defaultValue(fields()[3]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
@@ -493,7 +495,7 @@ public class IotSensorVal extends org.apache.avro.specific.SpecificRecordBase im
 
     out.writeString(this.SensorType);
 
-    out.writeInt(this.ReadingTime);
+    out.writeLong(this.ReadingTime);
 
     out.writeFloat(this.ReadingValue);
 
@@ -508,7 +510,7 @@ public class IotSensorVal extends org.apache.avro.specific.SpecificRecordBase im
 
       this.SensorType = in.readString(this.SensorType instanceof Utf8 ? (Utf8)this.SensorType : null);
 
-      this.ReadingTime = in.readInt();
+      this.ReadingTime = in.readLong();
 
       this.ReadingValue = in.readFloat();
 
@@ -524,7 +526,7 @@ public class IotSensorVal extends org.apache.avro.specific.SpecificRecordBase im
           break;
 
         case 2:
-          this.ReadingTime = in.readInt();
+          this.ReadingTime = in.readLong();
           break;
 
         case 3:

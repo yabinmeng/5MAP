@@ -38,7 +38,7 @@ public class AvroSchemaProducer {
 
                 int sensorId = RandomUtils.nextInt(0, AvroSchemaUtil.MAX_SENSOR_CNT);
                 String sensorType = AvroSchemaUtil.AVAILABLE_SENSOR_TYPES[RandomUtils.nextInt(0, AvroSchemaUtil.AVAILABLE_SENSOR_TYPES.length)];
-                IotSensorVal iotSensorVal = new IotSensorVal("sensor-id-" + sensorId, sensorType, Integer.valueOf((int) System.currentTimeMillis()), RandomUtils.nextFloat());
+                IotSensorVal iotSensorVal = new IotSensorVal("sensor-id-" + sensorId, sensorType, System.currentTimeMillis(), RandomUtils.nextFloat(0, 100));
 
                 KeyValue<IotSensorKey, IotSensorVal> iotSensorData = new KeyValue<>(iotSensorKey, iotSensorVal);
 
@@ -77,10 +77,10 @@ public class AvroSchemaProducer {
 
                 int sensorId = RandomUtils.nextInt(0, AvroSchemaUtil.MAX_SENSOR_CNT);
                 String sensorType = AvroSchemaUtil.AVAILABLE_SENSOR_TYPES[RandomUtils.nextInt(0, AvroSchemaUtil.AVAILABLE_SENSOR_TYPES.length)];
-                IotSensorVal iotSensorVal = new IotSensorVal("sensor-id-" + sensorId, sensorType, Integer.valueOf((int) System.currentTimeMillis()), RandomUtils.nextFloat());
+                IotSensorVal iotSensorVal = new IotSensorVal("sensor-id-" + sensorId, sensorType, System.currentTimeMillis(), RandomUtils.nextFloat(0, 100));
 
                 producer.newMessage()
-                        .property("prop_2", String.valueOf(RandomStringUtils.randomAlphabetic(5, 10)))
+                        .property("prop_2", RandomStringUtils.randomAlphabetic(5, 10))
                         .key("site-" + siteId + "|station-" + stationId).value(iotSensorVal).send();
             }
 
@@ -98,7 +98,7 @@ public class AvroSchemaProducer {
                 .build();
 
         prdMsgWithAvroKey(pulsarClient, AvroSchemaUtil.TOPIC1);
-        prdMsgWithStrKey(pulsarClient, AvroSchemaUtil.TOPIC2);
+//        prdMsgWithStrKey(pulsarClient, AvroSchemaUtil.TOPIC2);
 
         if (pulsarClient != null)
             pulsarClient.close();

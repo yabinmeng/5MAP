@@ -4,7 +4,7 @@
   "fields" : [
     {"name": "SensorID", "type": "string"},
     {"name": "SensorType", "type": "string"},
-    {"name": "ReadingTime", "type": "int", "logicalType": "date"},
+    {"name": "ReadingTime", "type": "long", "logicalType": "date"},
     {"name": "ReadingValue", "type": "float"}
   ]
 }
