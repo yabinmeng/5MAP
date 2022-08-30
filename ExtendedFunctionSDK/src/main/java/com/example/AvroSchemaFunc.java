@@ -101,9 +101,9 @@ public class AvroSchemaFunc implements Function<GenericObject, Void> {
             }
 
 
-            // NOTE:
-            // 1) how to convert from Pulsar Generic record to a POJO ?? or
-            // 2) how to convert from Avro Generic record to a POJO ??
+            // TBD:
+            // 1) convert from Pulsar Generic record to a POJO, or
+            // 2) convert from Avro Generic record to a POJO
 
             // native Avro Generic record
             //GenericData.Record msgKeyNativeRec = (GenericData.Record) msgKeyRecord.getNativeObject();
